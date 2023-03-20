@@ -37,6 +37,18 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+    @Override
+    public List<Ad> allProfile(Ad ad){
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE adlister_db.ads.user_id= ?");
+            stmt.setLong(1, ad.getUserId());
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
 
     @Override
     public Long insert(Ad ad) {
