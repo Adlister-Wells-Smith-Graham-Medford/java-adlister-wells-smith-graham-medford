@@ -1,7 +1,5 @@
 package com.codeup.adlister.models;
 
-import java.text.DecimalFormat;
-
 public class Ad {
     private long id;
     private long userId;
@@ -37,20 +35,6 @@ public class Ad {
     }
     public Ad(long userId){
         this.userId=userId;
-    }
-
-    public Ad(long id, long userId, String title, String description, Integer price, String make, String model, Integer year, Integer mpg, String transmission, Integer mileage) {
-        this.id = id;
-        this.userId = userId;
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.mpg = mpg;
-        this.transmission = transmission;
-        this.mileage = mileage;
     }
 
     public Ad(int i, String title, String description, String price, String make, String model, String year, String mpg, String transmission, String mileage) {
@@ -143,6 +127,5 @@ public class Ad {
 
     public void setTransmission(String transmission) {
         this.transmission = transmission;
-
     }
 }
