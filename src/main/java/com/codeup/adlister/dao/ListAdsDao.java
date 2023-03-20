@@ -58,6 +58,6 @@ public class ListAdsDao implements Ads {
 //            "JavaScript Developer needed",
 //            "Must have strong Java skills"
 //        ));
-//        return ads;
+        return ads;
     }
 }
