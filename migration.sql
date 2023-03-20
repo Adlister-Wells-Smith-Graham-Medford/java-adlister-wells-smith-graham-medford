@@ -8,6 +8,7 @@ CREATE TABLE users (
     username VARCHAR(240) NOT NULL,
     email VARCHAR(240) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    bio TEXT,
     PRIMARY KEY (id)
 );
 
@@ -16,6 +17,9 @@ CREATE TABLE ads (
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
     description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    make VARCHAR(240) NOT NULL,
+    model VARCHAR(240) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
