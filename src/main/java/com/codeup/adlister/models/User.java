@@ -1,17 +1,21 @@
 package com.codeup.adlister.models;
 
+import java.awt.*;
+
 public class User {
     private long id;
     private String username;
     private String email;
     private String password;
+    private String bio;
 
     public User() {}
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String bio) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.bio = bio;
     }
 
     public User(long id, String username, String email, String password) {
@@ -51,5 +55,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }
