@@ -64,6 +64,7 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
+        String bio = request.getParameter("bio");
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         System.out.println(hashedPassword);
@@ -78,7 +79,8 @@ public class RegisterServlet extends HttpServlet {
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
                 || password.isEmpty()
-                || (! password.equals(passwordConfirmation));
+                || (! password.equals(passwordConfirmation))
+                || bio.isEmpty();
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
@@ -88,7 +90,7 @@ public class RegisterServlet extends HttpServlet {
 
         // create and save a new user
 //        navbar-smith
-        User user = new User(username, email, hashedPassword, request.getParameter("bio"));
+        User user = new User(username, email, hashedPassword, bio);
 
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");

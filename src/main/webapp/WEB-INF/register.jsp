@@ -26,6 +26,10 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
+            <div class="form-group">
+                <label for="confirm_password">Bio</label>
+                <input id="bio" name="bio" class="form-control" type="text">
+            </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
