@@ -23,6 +23,7 @@ CREATE TABLE ads (
     year INT(4) NOT NULL,
     mpg INT(3) NOT NULL,
     transmission VARCHAR(30) NOT NULL,
+    mileage INT(6) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
