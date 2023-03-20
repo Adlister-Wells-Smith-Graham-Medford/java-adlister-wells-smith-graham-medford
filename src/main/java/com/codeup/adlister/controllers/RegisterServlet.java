@@ -89,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
 
 
         // create and save a new user
-//        navbar-smith
+
         User user = new User(username, email, hashedPassword, bio);
 
         DaoFactory.getUsersDao().insert(user);
