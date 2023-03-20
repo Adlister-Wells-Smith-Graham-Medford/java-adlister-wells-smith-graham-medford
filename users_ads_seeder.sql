@@ -1,5 +1,5 @@
 
-INSERT INTO users (username, email, password, biography) VALUES
+INSERT INTO users (username, email, password, bio) VALUES
                                                              ('john_doe', 'john_doe@example.com', 'password123', 'Hi, my name is John and I love my blue 2019 Ford Mustang GT with its powerful V8 engine and sleek design.'),
                                                              ('jane_smith', 'jane_smith@example.com', 'abc123', 'I am Jane and I adore my red 2021 Tesla Model Y with its cutting-edge technology and eco-friendly features.'),
                                                              ('bob_johnson', 'bob_johnson@example.com', 'mysecretpass', 'My name is Bob and I can\'t get enough of my black 2018 Chevrolet Camaro ZL1 with its supercharged V8 engine and aggressive styling.'),

@@ -24,4 +24,6 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
-select * from users
+
+
+
