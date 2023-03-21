@@ -10,8 +10,12 @@ public class Ad {
     private Integer price;
     private String make;
     private String model;
+    private int year;
+    private int mpg;
+    private String transmission;
 
-    public Ad(long id, long userId, String title, String description, int price, String make, String model) {
+    public Ad(long id, long userId, String title, String description, int price, String make, String model, int year,
+              int mpg, String transmission) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -19,6 +23,9 @@ public class Ad {
         this.price = price;
         this.make = make;
         this.model = model;
+        this.year=year;
+        this.mpg=mpg;
+        this.transmission=transmission;
     }
 
     public Ad(long userId, String title, String description) {
@@ -85,5 +92,33 @@ public class Ad {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMpg() {
+        return mpg;
+    }
+
+    public void setMpg(int mpg) {
+        this.mpg = mpg;
+    }
+
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
     }
 }

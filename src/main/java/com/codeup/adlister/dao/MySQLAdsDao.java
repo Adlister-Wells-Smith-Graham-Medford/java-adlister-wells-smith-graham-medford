@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.io.FileInputStream;
@@ -38,6 +39,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
     @Override
     public List<Ad> allProfile(Ad ad){
         PreparedStatement stmt = null;
@@ -54,7 +56,7 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description, price, make, model) VALUES (?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, price, make, model, year, mpg, transmission) VALUES (?, ?, ?, ?, ?, ?,?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
@@ -62,6 +64,9 @@ public class MySQLAdsDao implements Ads {
             stmt.setInt(4, ad.getPrice());
             stmt.setString(5, ad.getMake());
             stmt.setString(6, ad.getModel());
+            stmt.setInt(7, ad.getYear());
+            stmt.setInt(8, ad.getMpg());
+            stmt.setString(9, ad.getTransmission());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -79,7 +84,10 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description"),
             rs.getInt("price"),
             rs.getString("make"),
-            rs.getString("model")
+            rs.getString("model"),
+            rs.getInt("year"),
+            rs.getInt("mpg"),
+            rs.getString("transmission")
         );
     }
 
@@ -89,5 +97,40 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+//    TODO make the pictures button redirect to a dynamic details page
+private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
+    List<Ad> ads = new ArrayList<>();
+        ads.add(ad);
+    return ads;
+}
+//    @Override
+    public List<Ad> findById(int id) {
+        String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+                  Ad ad=  extractAdById(stmt.executeQuery());
+            return createAdsFromResults(ad);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
+        }
+    }
+    private Ad extractAdById(ResultSet rs) throws SQLException {
+        if (! rs.next()) {
+            return null;
+        }
+        return new Ad(
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getInt("price"),
+                rs.getString("make"),
+                rs.getString("model"),
+                rs.getInt("year"),
+                rs.getInt("mpg"),
+                rs.getString("transmission")
+        );
     }
 }
