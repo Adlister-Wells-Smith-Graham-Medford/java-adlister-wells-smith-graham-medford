@@ -17,6 +17,11 @@
             <div class="col-md-6">
                 <h2><c:out value="${ad.title}"/></h2>
                 <p><c:out value="${ad.description}"/></p>
+                <form action="/details" method="post">
+                    <input type="hidden" name="adId" value="${ad.id}">
+                        <%--                <div class="text-white" id="title">${ad.title}</div>--%>
+                    <input type="submit" class="btn btn-primary " value="Details">
+                </form>
             </div>
         </c:forEach>
     </div>

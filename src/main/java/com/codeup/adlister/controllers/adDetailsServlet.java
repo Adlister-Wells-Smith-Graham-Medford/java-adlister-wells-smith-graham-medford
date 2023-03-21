@@ -18,9 +18,7 @@ public class adDetailsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        TODO make the pictures button redirect to a dynamic details page
         String adId = request.getParameter("adId");
-        System.out.println(adId);
         List<Ad> ad = DaoFactory.getAdsDao().findById(Integer.parseInt(adId));
-        System.out.println(ad);
         HttpSession session = request.getSession();
         session.setAttribute("ads", ad);
         request.getRequestDispatcher("/WEB-INF/ads/details.jsp").forward(request, response);
