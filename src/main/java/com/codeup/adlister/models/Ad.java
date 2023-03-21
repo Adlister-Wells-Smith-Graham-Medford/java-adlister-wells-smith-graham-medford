@@ -23,10 +23,12 @@ public class Ad {
         this.price = price;
         this.make = make;
         this.model = model;
-        this.year = year;
-        this.mpg = mpg;
+        this.year=year;
+        this.mpg=mpg;
         this.mileage = mileage;
-        this.transmission = transmission;
+        this.transmission=transmission;
+
+
     }
 
     public Ad(long userId, String title, String description) {
@@ -111,6 +113,10 @@ public class Ad {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getYear() {

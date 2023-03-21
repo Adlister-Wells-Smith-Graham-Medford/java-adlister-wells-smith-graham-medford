@@ -1,0 +1,43 @@
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#main-title{
+    position: absolute;
+    left: 600px;
+}
+body{
+    /*background-image: url("/img/adbackground.jpeg");*/
+    /*background-size: cover;*/
+    /*background-repeat: repeat;*/
+    background-color: #eaecee;
+    color: black;
+}
+#container{
+    margin-top:100px ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #eaecee;
+}
+#card {
+
+    display: flex;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px 0 #000000;
+    width: 900px;
+    height: 320px;
+    color: black;
+    background-color: whitesmoke;
+    perspective: 1000px;
+}
+#picture{
+    margin-right: 20px;
+}
+
+
