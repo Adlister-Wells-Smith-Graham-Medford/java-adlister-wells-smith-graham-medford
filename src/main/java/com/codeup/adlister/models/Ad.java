@@ -2,10 +2,10 @@ package com.codeup.adlister.models;
 
 public class Ad {
     private long id;
-    private long userId;
+    private long userid;
     private String title;
     private String description;
-    private Integer price;
+    private int price;
     private String make;
     private String model;
     private int year;
@@ -13,9 +13,9 @@ public class Ad {
     private String mileage;
     private String transmission;
 
-    public Ad(long id, long userId, String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
+    public Ad(long id, long userid, String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
         this.id = id;
-        this.userId = userId;
+        this.userid = userid;
         this.title = title;
         this.description = description;
         this.price = price;
@@ -27,19 +27,38 @@ public class Ad {
         this.transmission = transmission;
     }
 
-    public Ad(long userId, String title, String description) {
-        this.userId = userId;
+//    public Ad(long id,String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
+//        this.id = id;
+//        this.title = title;
+//        this.description = description;
+//        this.price = price;
+//        this.make = make;
+//        this.model = model;
+//        this.year = year;
+//        this.mpg = mpg;
+//        this.mileage = mileage;
+//        this.transmission = transmission;
+//    }
+
+    public Ad(long userid, String title, String description) {
+        this.userid = userid;
         this.title = title;
         this.description = description;
 
     }
-    public Ad(long userId){
-        this.userId=userId;
+    public Ad(long userid){
+        this.userid=userid;
     }
 
-    public Ad(int i, String title, String description, String price, String make, String model, String year, String mpg, String transmission, String mileage) {
+//    public Ad(long id, long userId, String title, String description, int price, String make, String model, int year, int mpg, String transmission, String mileage) {
+//
+//    }
+//
+//    public Ad(String title, String description, int price, String make, String model, int year, int mpg, String mileage, String transmission) {
+//    }
 
-    }
+//    public Ad(long id, long user_Id, String title, String description, int price, String make, String model, int year, int mpg, String mileage, String transmission) {
+//    }
 
     public long getId() {
         return id;
@@ -50,11 +69,11 @@ public class Ad {
     }
 
     public long getUserId() {
-        return userId;
+        return userid;
     }
 
     public void setUserId(long userId) {
-        this.userId = userId;
+        this.userid = userid;
     }
 
     public String getTitle() {
