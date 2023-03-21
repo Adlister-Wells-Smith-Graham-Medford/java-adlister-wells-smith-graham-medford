@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,4 +15,16 @@ public interface Ads {
 
     //    Delete Ads
     void deleteAd(int id);
+
+//    List<Ad> adDetails(Ad ad);
+
+    List<Ad> findById(int id);
+    Ad findById(Long id);
+    List<Ad> search(String keyword);
+
+    List<Ad> findByYearAndMake(int year, String make);
+
+    List<Ad> findByMake(String make);
+    List<Ad> searchByModel(String model);
+
 }

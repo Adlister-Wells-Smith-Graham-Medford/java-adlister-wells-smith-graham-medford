@@ -16,10 +16,17 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div>
-    <h2><c:out value="${ad.title}"/></h2>
-<%--    <p><c:out value="${ad.milage}"</p>--%>
-<%--    <p><c:out value="${ad.mpg}"</p>--%>
-<%--    <p><c:out value="${ad.cylinder}"</p>--%>
+<c:forEach var="ad" items="${ads}">
+    <div>
+        <h2><c:out value="${ad.title}"/></h2>
+        <p>Price:<c:out value="${ad.price}"/></p>
+        <p>Make:<c:out value="${ad.make}"/></p>
+        <p>Model:<c:out value="${ad.model}"/></p>
+        <p>Year:<c:out value="${ad.year}"/></p>
+        <p>MPG:<c:out value="${ad.mpg}"/></p>
+        <p>Transmission:<c:out value="${ad.transmission}"/></p>
+    </div>
+</c:forEach>
 </div>
 </body>
 </html>

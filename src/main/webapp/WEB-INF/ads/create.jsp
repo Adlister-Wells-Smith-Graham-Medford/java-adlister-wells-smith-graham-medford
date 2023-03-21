@@ -21,6 +21,7 @@
             </div>
             <div class="form-group">
                 <label for="make">Make</label>
+
                 <input id="make" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
@@ -41,11 +42,11 @@
             </div>
             <div class="form-group">
                 <label for="mpg">MPG</label>
-                <input id="mpg" name="title" class="form-control" type="text">
+                <input id="mpg" name="mpg" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="transmission">Transmission</label>
-                <input id="transmission" name="title" class="form-control" type="text">
+                <input id="transmission" name="transmission" class="form-control" type="text">
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
