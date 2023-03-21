@@ -62,6 +62,7 @@ public class SearchAdsServlet extends HttpServlet {
             request.setAttribute("ads", ads);
             request.setAttribute("make", make);
         }
+
         // Forward the request to the JSP page for rendering
         request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
     }

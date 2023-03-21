@@ -91,6 +91,20 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public List<Ad> searchByPrice(int minPrice, int maxPrice) {
+        PreparedStatement stmt = null;
+        try {
+            String query = "SELECT * FROM ads WHERE price BETWEEN ? AND ?";
+            stmt = connection.prepareStatement(query);
+            stmt.setInt(1, minPrice);
+            stmt.setInt(2, maxPrice);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error searching for ads by price range", e);
+        }
+    }
+
     public List<Ad> search(String keyword) {
         PreparedStatement stmt = null;
         try {
@@ -145,6 +159,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error searching ads by model.", e);
         }
     }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
