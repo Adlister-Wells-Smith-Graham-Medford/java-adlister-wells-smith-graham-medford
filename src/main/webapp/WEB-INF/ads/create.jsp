@@ -13,31 +13,31 @@
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
+                <input id="title" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control" type="text" placeholder="*"></textarea>
             </div>
             <div class="form-group">
                 <label for="make">Make</label>
-                <input id="make" name="title" class="form-control" type="text">
+                <input id="make" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="model">Model</label>
-                <input id="model" name="title" class="form-control" type="text">
+                <input id="model" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="year">Year</label>
-                <input id="year" name="title" class="form-control" type="text">
+                <input id="year" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="mileage">Mileage</label>
-                <input id="mileage" name="title" class="form-control" type="text">
+                <input id="mileage" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="title" class="form-control" type="text">
+                <input id="price" name="title" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="mpg">MPG</label>

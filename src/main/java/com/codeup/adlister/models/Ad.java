@@ -5,7 +5,7 @@ public class Ad {
     private long userId;
     private String title;
     private String description;
-    private Integer price;
+    private int price;
     private String make;
     private String model;
     private int year;
