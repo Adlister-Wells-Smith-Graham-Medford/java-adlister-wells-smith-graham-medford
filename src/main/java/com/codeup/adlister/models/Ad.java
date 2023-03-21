@@ -145,4 +145,5 @@ public class Ad {
         this.transmission = transmission;
 
     }
+
 }

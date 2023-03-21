@@ -74,20 +74,24 @@
     <p>${errorMessage}</p>
   </c:if>
   <c:if test="${not empty ads}">
-    <div class="card mt-3">
-      <div class="card-body text-center">
+
         <c:forEach items="${ads}" var="ad">
-          <h1 class="card-title">${ad.title}</h1>
-          <h3 class="card-text">Price: ${ad.price}</h3>
-          <p class="card-text">Description: ${ad.description}</p>
-          <p class="card-text">Transmission: ${ad.transmission}</p>
-          <p class="card-text">MPG: ${ad.mileage}</p>
-          <p class="card-text"></p>
-          <p>Posted by: ${user.username}</p>
-          <h6 class="card-text">Ad ID #: ${ad.id}</h6>
+          <div class="card mt-3">
+            <div class="card-body text-center">
+              <h1 class="card-title">${ad.title}</h1>
+              <h3 class="card-text">Price: ${ad.price}</h3>
+              <p class="card-text">Description: ${ad.description}</p>
+              <p class="card-text">Transmission: ${ad.transmission}</p>
+              <p class="card-text">MPG: ${ad.mileage}</p>
+              <p class="card-text"></p>
+              <c:if test="${not empty user.username}">
+                <p class="card-text">Posted by: <c:out value="${user.username}" /></p>
+              </c:if>
+              <h6 class="card-text">Ad ID #: ${ad.id}</h6>
+            </div>
+          </div>
         </c:forEach>
-      </div>
-    </div>
+
   </c:if>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
