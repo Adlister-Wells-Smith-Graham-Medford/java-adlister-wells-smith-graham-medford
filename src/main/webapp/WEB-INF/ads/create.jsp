@@ -21,31 +21,31 @@
             </div>
             <div class="form-group">
                 <label for="make">Make</label>
-                <input id="make" name="title" class="form-control" type="text">
+                <input id="make" name="make" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="model">Model</label>
-                <input id="model" name="title" class="form-control" type="text">
+                <input id="model" name="model" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="year">Year</label>
-                <input id="year" name="title" class="form-control" type="text">
+                <input id="year" name="year" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="mileage">Mileage</label>
-                <input id="mileage" name="title" class="form-control" type="text">
+                <input id="mileage" name="mileage" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="title" class="form-control" type="text">
+                <input id="price" name="price" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="mpg">MPG</label>
-                <input id="mpg" name="title" class="form-control" type="text">
+                <input id="mpg" name="mpg" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="transmission">Transmission</label>
-                <input id="transmission" name="title" class="form-control" type="text">
+                <input id="transmission" name="transmission" class="form-control" type="text">
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
