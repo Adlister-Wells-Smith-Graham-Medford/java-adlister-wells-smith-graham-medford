@@ -12,10 +12,10 @@ public class Ad {
     private String model;
     private int year;
     private int mpg;
+    private String mileage;
     private String transmission;
 
-    public Ad(long id, long userId, String title, String description, int price, String make, String model, int year,
-              int mpg, String transmission) {
+    public Ad(long id, long userId, String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -25,7 +25,10 @@ public class Ad {
         this.model = model;
         this.year=year;
         this.mpg=mpg;
+        this.mileage = mileage;
         this.transmission=transmission;
+
+
     }
 
     public Ad(long userId, String title, String description) {
@@ -36,6 +39,24 @@ public class Ad {
     }
     public Ad(long userId){
         this.userId=userId;
+    }
+
+    public Ad(long id, long userId, String title, String description, Integer price, String make, String model, Integer year, Integer mpg, String transmission, String mileage) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.price = price;
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.mpg = mpg;
+        this.transmission = transmission;
+        this.mileage = mileage;
+    }
+
+    public Ad(int i, String title, String description, String price, String make, String model, String year, String mpg, String transmission, String mileage) {
+
     }
 
     public long getId() {
@@ -94,7 +115,7 @@ public class Ad {
         this.model = model;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -114,11 +135,21 @@ public class Ad {
         this.mpg = mpg;
     }
 
+    public String getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(String mileage) {
+        this.mileage = mileage;
+    }
+
     public String getTransmission() {
         return transmission;
     }
 
     public void setTransmission(String transmission) {
         this.transmission = transmission;
+
     }
+
 }

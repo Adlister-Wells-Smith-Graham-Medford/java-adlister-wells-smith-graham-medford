@@ -16,4 +16,12 @@ public interface Ads {
 //    List<Ad> adDetails(Ad ad);
 
     List<Ad> findById(int id);
+    Ad findById(Long id);
+    List<Ad> search(String keyword);
+
+    List<Ad> findByYearAndMake(int year, String make);
+
+    List<Ad> findByMake(String make);
+    List<Ad> searchByModel(String model);
+
 }
