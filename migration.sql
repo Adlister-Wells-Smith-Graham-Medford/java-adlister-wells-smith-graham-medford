@@ -21,9 +21,9 @@ CREATE TABLE ads (
     make VARCHAR(30) NOT NULL,
     model VARCHAR(30) NOT NULL,
     year INT(4) NOT NULL,
-    mpg INT(3) NOT NULL,
+    mpg INT(3),
     mileage varchar(7) NOT NULL,
-    transmission VARCHAR(30) NOT NULL,
+    transmission VARCHAR(30),
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE

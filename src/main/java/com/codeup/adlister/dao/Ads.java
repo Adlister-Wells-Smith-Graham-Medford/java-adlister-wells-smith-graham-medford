@@ -13,6 +13,9 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
 
+    //    Delete Ads
+    void deleteAd(int id);
+
 //    List<Ad> adDetails(Ad ad);
 
     List<Ad> findById(int id);
