@@ -38,7 +38,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> allProfile(Ad ad){
+    public List<Ad> allProfile(Ad ad) {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE adlister_db.ads.user_id= ?");
@@ -64,7 +64,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(6, ad.getModel());
             stmt.setInt(7, ad.getYear());
             stmt.setInt(8, ad.getMpg());
-            stmt.setString(9,ad.getMileage());
+            stmt.setString(9, ad.getMileage());
             stmt.setString(10, ad.getTransmission());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
@@ -82,7 +82,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, id);
 //            return extractAd(stmt.executeQuery());
             ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return extractAd(rs);
             }
             return null;
@@ -160,7 +160,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
@@ -185,38 +184,41 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-//    Delete Ads
+    //    Delete Ads
     @Override
-    public void deleteAd(int id){
-        try{
-        String deleteQuery = "DELETE FROM ads WHERE id = ?";
-        PreparedStatement stmt = connection.prepareStatement(deleteQuery);
-        stmt.setInt(1, id);
-        stmt.executeUpdate();
-    } catch (SQLException e) {
-        throw new RuntimeException("Error deleting ad.", e);
+    public void deleteAd(int id) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
     }
 
-//    TODO make the pictures button redirect to a dynamic details page
-private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
-    List<Ad> ads = new ArrayList<>();
+    //    TODO make the pictures button redirect to a dynamic details page
+    private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
         ads.add(ad);
-    return ads;
-}
-//    @Override
+        return ads;
+    }
+
+    //    @Override
     public List<Ad> findById(int id) {
         String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setInt(1, id);
-                  Ad ad=  extractAdById(stmt.executeQuery());
+            Ad ad = extractAdById(stmt.executeQuery());
             return createAdsFromResults(ad);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
     private Ad extractAdById(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new Ad(
@@ -229,7 +231,9 @@ private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
                 rs.getString("model"),
                 rs.getInt("year"),
                 rs.getInt("mpg"),
+                rs.getString("mileage"),
                 rs.getString("transmission")
         );
     }
 }
+
