@@ -10,4 +10,11 @@ public interface Ads {
     List<Ad> all();
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+    Ad findById(Long id);
+    List<Ad> search(String keyword);
+
+    List<Ad> findByYearAndMake(int year, String make);
+
+    List<Ad> findByMake(String make);
+    List<Ad> searchByModel(String model);
 }
