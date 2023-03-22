@@ -21,6 +21,8 @@
                     <input type="hidden" name="adId" value="${ad.id}">
                         <%--                <div class="text-white" id="title">${ad.title}</div>--%>
                     <input type="submit" class="btn btn-primary " value="Details">
+                    <input type="hidden" name="deleteAd" value="${ad.id}">
+                    <input type="submit" class="btn btn-danger " value="Delete">
                 </form>
             </div>
         </c:forEach>
