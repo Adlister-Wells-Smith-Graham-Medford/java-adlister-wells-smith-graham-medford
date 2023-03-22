@@ -188,7 +188,7 @@ public class MySQLAdsDao implements Ads {
     @Override
     public void deleteAd(int id) {
         try {
-            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            String deleteQuery = "DELETE FROM ads WHERE id =" + id;
             PreparedStatement stmt = connection.prepareStatement(deleteQuery);
             stmt.setInt(1, id);
             stmt.executeUpdate();
@@ -197,6 +197,17 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+//    public List<Ad> deleteById(int id) {
+//        String query = "DELETE FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setInt(1, id);
+////            Ad ad = extractAdById(stmt.executeQuery());
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error finding a user by username", e);
+//        }
+//        return null;
+//    }
     //    TODO make the pictures button redirect to a dynamic details page
     private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
         List<Ad> ads = new ArrayList<>();
@@ -216,6 +227,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
 
     private Ad extractAdById(ResultSet rs) throws SQLException {
         if (!rs.next()) {

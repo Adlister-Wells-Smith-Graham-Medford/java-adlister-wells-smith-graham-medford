@@ -16,6 +16,8 @@ public interface Ads {
     //    Delete Ads
     void deleteAd(int id);
 
+    public List<Ad> deleteById(int id);
+
 //    List<Ad> adDetails(Ad ad);
 
     List<Ad> findById(int id);
