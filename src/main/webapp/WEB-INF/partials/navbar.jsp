@@ -27,7 +27,9 @@
                         <a class="dropdown-item" href="/ads/create">Create Ad</a>
                         <a class="dropdown-item" href="/ads/delete">Delete Ad</a>
                         <a class="dropdown-item" href="/ads">View Ads</a>
+                        <a class="dropdown-item" href="/user/editAccount">Edit Account</a>
                         <a class="dropdown-item" href="/logout">Logout</a>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

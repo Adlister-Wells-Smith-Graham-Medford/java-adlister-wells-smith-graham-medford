@@ -13,6 +13,7 @@
     <div class="container my-4 mb-4 text-center">
         <h1>Welcome, <c:out value="${sessionScope.user.username}"/>!</h1>
         <h3><c:out value="${sessionScope.user.email}"/></h3>
+        <p><c:out value="${sessionScope.user.bio}"/></p>
 
 
         <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
