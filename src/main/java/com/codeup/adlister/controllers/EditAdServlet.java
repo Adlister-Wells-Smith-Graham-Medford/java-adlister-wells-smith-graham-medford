@@ -71,7 +71,7 @@ public class EditAdServlet extends HttpServlet {
         // Update the ad in the database
         adsDao.update(ad);
 
-        response.sendRedirect("/ads");
+        response.sendRedirect("/profile");
 
     }
 }

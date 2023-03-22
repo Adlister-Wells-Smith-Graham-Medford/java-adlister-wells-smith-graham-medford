@@ -21,7 +21,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title"><c:out value="${ad.title}"/></h2>
+                            <p class="card-text"><c:out value="Price: ${ad.price}"/></p>
                             <p class="card-text"><c:out value="Description: ${ad.description}"/></p>
+                            <p class="card-text"><c:out value="Transmission: ${ad.transmission}"/></p>
+                            <p class="card-text"><c:out value="Mileage: ${ad.mileage}"/></p>
+                            <p class="card-text"><c:out value="MPG: ${ad.mpg}"/></p>
                             <p class="card-text"><c:out value="Ad Id #: ${ad.id}"/></p>
                             <a href="/ads/edit?id=${ad.id}" class="btn btn-primary">Edit</a>
                         </div>
