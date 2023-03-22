@@ -12,7 +12,9 @@ public interface Ads {
     Long insert(Ad ad);
 
     //    Delete Ads
-    List<Ad> deleteAd(int id);
+
+    void deleteAd(int id);
+    void deleteAllAds(int adId);
 
 //    List<Ad> adDetails(Ad ad);
 
@@ -27,4 +29,5 @@ public interface Ads {
 
 
     void update(Ad ad);
+
 }

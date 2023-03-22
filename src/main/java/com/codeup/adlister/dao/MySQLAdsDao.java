@@ -208,13 +208,47 @@ public class MySQLAdsDao implements Ads {
     }
 
     //    Delete Ads
+
     @Override
-    public List<Ad> deleteAd(int id) {
+    public void deleteAd(int id) {
         try {
             String deleteQuery = "DELETE FROM ads WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(deleteQuery);
             stmt.setInt(1, id);
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+    }
+    @Override
+    public void deleteAllAds(int id) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+    }
+
+    //    TODO make the pictures button redirect to a dynamic details page
+    private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+        ads.add(ad);
+        return ads;
+    }
+
+    //    @Override
+    public List<Ad> findById(int id) {
+        String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setInt(1, id);
+
+            Ad ad = extractAdById(stmt.executeQuery());
+            return createAdsFromResults(ad);
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting ad.", e);
         }
@@ -242,7 +276,6 @@ public class MySQLAdsDao implements Ads {
             }
         }
 
-
     private Ad extractAdById(ResultSet rs) throws SQLException {
         if (!rs.next()) {
             return null;
@@ -255,8 +288,9 @@ public class MySQLAdsDao implements Ads {
                 rs.getString("price"),
                 rs.getString("make"),
                 rs.getString("model"),
-                rs.getString("year"),
-                rs.getString("mpg"),
+                rs.getInt("year"),
+                rs.getInt("mpg"),
+                rs.getString("mileage"),
                 rs.getString("transmission")
         );
     }
