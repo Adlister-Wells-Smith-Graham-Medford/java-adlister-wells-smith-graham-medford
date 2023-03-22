@@ -70,6 +70,7 @@ CREATE TABLE users (
 );
 DROP TABLE IF EXISTS ads;
 CREATE TABLE ads (
+
                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                      user_id INT UNSIGNED NOT NULL,
                      title VARCHAR(100) NOT NULL,
@@ -85,6 +86,7 @@ CREATE TABLE ads (
                      PRIMARY KEY (id),
                      FOREIGN KEY (user_id) REFERENCES users(id)
                          ON DELETE CASCADE
+
 );
 
 SELECT * From users;

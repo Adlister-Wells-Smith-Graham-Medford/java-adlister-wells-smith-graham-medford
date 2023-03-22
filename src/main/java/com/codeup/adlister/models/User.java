@@ -35,7 +35,6 @@ public class User {
         this.bio = bio;
         this.profilePic = profilePic;
     }
-
     public long getId() {
         return id;
     }
