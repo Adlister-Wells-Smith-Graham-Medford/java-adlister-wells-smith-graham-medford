@@ -23,7 +23,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     @Override
     public List<Ad> all() {
         PreparedStatement stmt = null;
@@ -220,6 +219,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting ad.", e);
         }
     }
+
     @Override
     public void deleteAllAds(int id) {
         try {
@@ -232,49 +232,27 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    //    TODO make the pictures button redirect to a dynamic details page
-    private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
+
+    ////    TODO make the pictures button redirect to a dynamic details page
+    private List<Ad> createAdsFromResults(Ad ad) {
         List<Ad> ads = new ArrayList<>();
         ads.add(ad);
         return ads;
     }
 
-    //    @Override
     public List<Ad> findById(int id) {
         String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
         try {
-            String deleteQuery = "DELETE FROM ads WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Ad ad = extractAdById(rs);
+            return createAdsFromResults((ResultSet) ad);
 
-            Ad ad = extractAdById(stmt.executeQuery());
-            return createAdsFromResults(ad);
         } catch (SQLException e) {
-            throw new RuntimeException("Error deleting ad.", e);
+            throw new RuntimeException("Error finding a user by username", e);
         }
-        return null;
     }
-
-////    TODO make the pictures button redirect to a dynamic details page
-        private List<Ad> createAdsFromResults (Ad ad){
-            List<Ad> ads = new ArrayList<>();
-            ads.add(ad);
-            return ads;
-        }
-
-        public List<Ad> findById (int id){
-            String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setInt(1, id);
-                ResultSet rs = stmt.executeQuery();
-                Ad ad = extractAdById(rs);
-                return createAdsFromResults((ResultSet) ad);
-
-            } catch (SQLException e) {
-                throw new RuntimeException("Error finding a user by username", e);
-            }
-        }
 
     private Ad extractAdById(ResultSet rs) throws SQLException {
         if (!rs.next()) {
@@ -294,7 +272,6 @@ public class MySQLAdsDao implements Ads {
                 rs.getString("transmission")
         );
     }
-
-
 }
+
 
