@@ -52,19 +52,21 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-
-            String insertQuery = "INSERT INTO ads(user_id, title, description, price, make, model, year, mpg, mileage, transmission) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?)";
+            String insertQuery = "INSERT INTO ads( id, user_id, title, description, price, make, model, year, mpg, mileage, transmission,ads_picture ) VALUES (?, ?, ?, ?, ?, ?,?,?,?,?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, ad.getUserId());
-            stmt.setString(2, ad.getTitle());
-            stmt.setString(3, ad.getDescription());
-            stmt.setInt(4, ad.getPrice());
-            stmt.setString(5, ad.getMake());
-            stmt.setString(6, ad.getModel());
-            stmt.setInt(7, ad.getYear());
-            stmt.setInt(8, ad.getMpg());
-            stmt.setString(9, ad.getMileage());
-            stmt.setString(10, ad.getTransmission());
+            stmt.setLong(1, ad.getId());
+            stmt.setLong(2, ad.getUserId());
+            stmt.setString(3, ad.getTitle());
+            stmt.setString(4, ad.getDescription());
+            stmt.setInt(5, ad.getPrice());
+            stmt.setString(6, ad.getMake());
+            stmt.setString(7, ad.getModel());
+            stmt.setInt(8, ad.getYear());
+            stmt.setInt(9, ad.getMpg());
+            stmt.setString(10,ad.getMileage());
+            stmt.setString(11, ad.getTransmission());
+            stmt.setString(12,ad.getAd_picture());
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -171,17 +173,20 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
-                rs.getString("title"),
-                rs.getString("description"),
-                rs.getInt("price"),
-                rs.getString("make"),
-                rs.getString("model"),
-                rs.getInt("year"),
-                rs.getInt("mpg"),
-                rs.getString("mileage"),
-                rs.getString("transmission")
+
+            rs.getLong("id"),
+            rs.getLong("user_id"),
+            rs.getString("title"),
+            rs.getString("description"),
+            rs.getInt("price"),
+            rs.getString("make"),
+            rs.getString("model"),
+            rs.getInt("year"),
+            rs.getInt("mpg"),
+            rs.getString("mileage"),
+            rs.getString("transmission"),
+                rs.getString("ads_picture")
+
         );
     }
 
