@@ -35,6 +35,18 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+    public User findByEmail(String email) {
+        String query = "SELECT * FROM users WHERE email = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, email);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by email", e);
+        }
+    }
+
+    @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password, bio) VALUES (?, ?, ?,?)";
         try {
@@ -65,6 +77,55 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+
+    public void updateUsername(User user, String newUsername) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET username = ? WHERE id = ?");
+            stmt.setString(1, newUsername);
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+            user.setUsername(newUsername);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating username for user: " + user, e);
+        }
+    }
+
+    @Override
+    public void updateEmail(User user, String newEmail) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET email = ? WHERE id = ?");
+            stmt.setString(1, newEmail);
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+            user.setEmail(newEmail);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating email for user: " + user, e);
+        }
+    }
+
+    @Override
+    public void updateBio(User user, String newBio) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET bio = ? WHERE id = ?");
+            stmt.setString(1, newBio);
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+//            user.setBio(newBio);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating email for user: " + user, e);
+        }
+    }
+
+    @Override
+    public void updatePassword(User user, String newPassword) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE users SET password = ? WHERE id = ?");
+            stmt.setString(1, newPassword);
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating password for user: " + user, e);
+
     public void deleteUser(long id) {
         String query = "DELETE FROM users WHERE id = ?";
         try {
@@ -73,6 +134,7 @@ public class MySQLUsersDao implements Users {
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting user", e);
+
         }
     }
 
