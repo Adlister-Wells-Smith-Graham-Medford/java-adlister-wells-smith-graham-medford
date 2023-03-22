@@ -55,9 +55,12 @@ public class Ad {
         this.mileage = mileage;
     }
 
-    public Ad(int i, String title, String description, String price, String make, String model, String year, String mpg, String transmission, String mileage) {
-
+    public Ad(int id, String title, String description, String price, String make, String model, String year, String mpg, String transmission, String mileage) {
     }
+
+    public Ad(int id, String userId, String title, String description, String price, String make, String model, int year, int mpg, String mileage, String transmission) {
+    }
+
 
     public long getId() {
         return id;
@@ -148,4 +151,7 @@ public class Ad {
 
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
