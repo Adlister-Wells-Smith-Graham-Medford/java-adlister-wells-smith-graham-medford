@@ -196,6 +196,17 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting ad.", e);
         }
     }
+    @Override
+    public void deleteAllAds(int id) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+    }
 
     //    TODO make the pictures button redirect to a dynamic details page
     private List<Ad> createAdsFromResults(Ad ad) throws SQLException {

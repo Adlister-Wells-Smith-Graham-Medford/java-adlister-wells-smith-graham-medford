@@ -15,6 +15,7 @@ public interface Ads {
 
     //    Delete Ads
     void deleteAd(int id);
+    void deleteAllAds(int adId);
 
 
 //    List<Ad> adDetails(Ad ad);
@@ -27,5 +28,6 @@ public interface Ads {
 
     List<Ad> findByMake(String make);
     List<Ad> searchByModel(String model);
+
 
 }
