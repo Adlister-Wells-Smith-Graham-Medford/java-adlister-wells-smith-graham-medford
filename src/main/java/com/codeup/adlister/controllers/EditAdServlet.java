@@ -1,16 +1,13 @@
 package com.codeup.adlister.controllers;
 
-
 import com.codeup.adlister.dao.Ads;
-import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.dao.Config;
 import com.codeup.adlister.dao.MySQLAdsDao;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-
 import java.io.IOException;
 
 @WebServlet(name = "EditAdServlet", urlPatterns = "/ads/edit")
