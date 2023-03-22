@@ -162,6 +162,7 @@ public class Ad {
         this.price = price;
     }
 
+
     public String getAd_picture() {
         return ad_picture;
     }

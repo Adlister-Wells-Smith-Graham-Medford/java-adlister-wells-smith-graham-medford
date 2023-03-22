@@ -211,6 +211,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting ad.", e);
         }
     }
+
     @Override
     public void deleteAllAds(int id) {
         try {
@@ -223,27 +224,26 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    ////    TODO make the pictures button redirect to a dynamic details page
+    private List<Ad> createAdsFromResults(Ad ad) {
+        List<Ad> ads = new ArrayList<>();
+        ads.add(ad);
+        return ads;
+    }
 
-////    TODO make the pictures button redirect to a dynamic details page
-        private List<Ad> createAdsFromResults (Ad ad){
-            List<Ad> ads = new ArrayList<>();
-            ads.add(ad);
-            return ads;
+    public List<Ad> findById(int id) {
+        String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            Ad ad = extractAdById(rs);
+            return createAdsFromResults((ResultSet) ad);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by username", e);
         }
-
-        public List<Ad> findById (int id){
-            String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setInt(1, id);
-                ResultSet rs = stmt.executeQuery();
-                Ad ad = extractAdById(rs);
-                return createAdsFromResults((ResultSet) ad);
-
-            } catch (SQLException e) {
-                throw new RuntimeException("Error finding a user by username", e);
-            }
-        }
+    }
 
     private Ad extractAdById(ResultSet rs) throws SQLException {
         if (!rs.next()) {
@@ -263,7 +263,6 @@ public class MySQLAdsDao implements Ads {
                 rs.getString("transmission")
         );
     }
-
-
 }
+
 
