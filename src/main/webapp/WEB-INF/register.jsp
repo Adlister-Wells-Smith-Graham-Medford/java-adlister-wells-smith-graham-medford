@@ -30,6 +30,10 @@
                 <label for="confirm_password">Bio</label>
                 <input id="bio" name="bio" class="form-control" type="text">
             </div>
+            <div class="form-group">
+                <label for="profilePic">Input Image URL</label>
+                <input id="profilePic" name="profilePic" class="form-control" type="text">
+            </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>

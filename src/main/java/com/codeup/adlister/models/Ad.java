@@ -1,6 +1,7 @@
 package com.codeup.adlister.models;
 
 public class Ad {
+    private String ad_picture;
     private long id;
     private long userid;
     private String title;
@@ -13,7 +14,7 @@ public class Ad {
     private String mileage;
     private String transmission;
 
-    public Ad(long id, long userid, String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
+    public Ad(long id, long userid, String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission, String ad_picture) {
         this.id = id;
         this.userid = userid;
         this.title = title;
@@ -25,6 +26,7 @@ public class Ad {
         this.mpg = mpg;
         this.mileage = mileage;
         this.transmission = transmission;
+        this.ad_picture = ad_picture;
     }
 
 //    public Ad(long id,String title, String description, int price, String make, String model, int year, int mpg,String mileage,String transmission) {
@@ -40,7 +42,8 @@ public class Ad {
 //        this.transmission = transmission;
 //    }
 
-    public Ad(long userid, String title, String description) {
+    public Ad(String ad_picture, long userid, String title, String description) {
+        this.ad_picture = ad_picture;
         this.userid = userid;
         this.title = title;
         this.description = description;
@@ -147,4 +150,9 @@ public class Ad {
     public void setTransmission(String transmission) {
         this.transmission = transmission;
     }
+
+    public String getAd_picture() {
+        return ad_picture;
+    }
+
 }
