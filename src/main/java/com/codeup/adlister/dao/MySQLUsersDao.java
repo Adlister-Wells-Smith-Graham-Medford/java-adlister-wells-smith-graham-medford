@@ -77,6 +77,7 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
+
     public void updateUsername(User user, String newUsername) {
         try {
             PreparedStatement stmt = connection.prepareStatement("UPDATE users SET username = ? WHERE id = ?");
@@ -124,6 +125,16 @@ public class MySQLUsersDao implements Users {
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error updating password for user: " + user, e);
+
+    public void deleteUser(long id) {
+        String query = "DELETE FROM users WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting user", e);
+
         }
     }
 
