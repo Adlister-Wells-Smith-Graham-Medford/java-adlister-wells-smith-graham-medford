@@ -82,7 +82,8 @@
               <h3 class="card-text">Price: ${ad.price}</h3>
               <p class="card-text">Description: ${ad.description}</p>
               <p class="card-text">Transmission: ${ad.transmission}</p>
-              <p class="card-text">MPG: ${ad.mileage}</p>
+              <p class="card-text">MPG: ${ad.mpg}</p>
+              <p class="card-text">Mileage: ${ad.mileage}</p>
               <p class="card-text"></p>
               <c:if test="${not empty user.username}">
                 <p class="card-text">Posted by: <c:out value="${user.username}" /></p>
