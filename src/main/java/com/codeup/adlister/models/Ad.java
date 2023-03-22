@@ -111,9 +111,9 @@ public class Ad {
         this.model = model;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
+//    public void setPrice(int price) {
+//        this.price = price;
+//    }
 
     public int getYear() {
         return year;
