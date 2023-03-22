@@ -90,20 +90,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-//    public List<Ad> searchByPrice(int minPrice, int maxPrice) {
-//        PreparedStatement stmt = null;
-//        try {
-//            String query = "SELECT * FROM ads WHERE price BETWEEN ? AND ?";
-//            stmt = connection.prepareStatement(query);
-//            stmt.setInt(1, minPrice);
-//            stmt.setInt(2, maxPrice);
-//            ResultSet rs = stmt.executeQuery();
-//            return createAdsFromResults(rs);
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error searching for ads by price range", e);
-//        }
-//    }
-
 
     public List<Ad> search(String keyword) {
         PreparedStatement stmt = null;
@@ -232,28 +218,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    //    TODO make the pictures button redirect to a dynamic details page
-    private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
-        List<Ad> ads = new ArrayList<>();
-        ads.add(ad);
-        return ads;
-    }
-
-    //    @Override
-    public List<Ad> findById(int id) {
-        String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
-        try {
-            String deleteQuery = "DELETE FROM ads WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
-            stmt.setInt(1, id);
-
-            Ad ad = extractAdById(stmt.executeQuery());
-            return createAdsFromResults(ad);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting ad.", e);
-        }
-        return null;
-    }
 
 ////    TODO make the pictures button redirect to a dynamic details page
         private List<Ad> createAdsFromResults (Ad ad){
