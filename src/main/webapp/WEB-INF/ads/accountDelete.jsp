@@ -12,6 +12,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Delete Account</title>
+  <link href="../../CSS/form.css" rel="stylesheet">
 </head>
 <body>
 <h1>Delete Account</h1>

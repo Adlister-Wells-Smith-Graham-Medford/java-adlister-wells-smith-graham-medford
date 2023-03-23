@@ -13,6 +13,7 @@
         <jsp:param name="title" value="Delete" />
     </jsp:include>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="../../CSS/form.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />

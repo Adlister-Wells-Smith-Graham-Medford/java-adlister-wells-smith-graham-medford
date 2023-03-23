@@ -1,41 +1,4 @@
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <jsp:include page="/WEB-INF/partials/head.jsp">--%>
-<%--        <jsp:param name="title" value="Viewing All The Ads" />--%>
-<%--    </jsp:include>--%>
-<%--    <link href="/CSS/index.css" rel="stylesheet">--%>
-<%--</head>--%>
-<%--<body>--%>
-<%--<div id="navbar">--%>
-<%--<jsp:include page="/WEB-INF/partials/navbar.jsp" />--%>
-<%--</div>--%>
 
-<%--    <h1 id="main-title">Here Are all the ads!</h1>--%>
-<%--<div class="container" id="container">--%>
-<%--    <c:forEach var="ad" items="${ads}">--%>
-<%--        <div class="col-md-6" id="card">--%>
-<%--            <div id="picture">--%>
-<%--               <img src="/img/2019%20mustang.jpeg" height="258" width="300">--%>
-<%--            </div>--%>
-<%--            <div>--%>
-<%--            <h2>${ad.title}</h2>--%>
-<%--            <p>${ad.description}</p>--%>
-<%--            <form action="/details" method="post">--%>
-<%--                <input type="hidden" name="adId" value="${ad.id}">--%>
-<%--&lt;%&ndash;                <div class="text-white" id="title">${ad.title}</div>&ndash;%&gt;--%>
-<%--                <input type="submit" class="btn btn-primary " value="Details">--%>
-<%--            </form>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </c:forEach>--%>
-
-
-<%--</div>--%>
-
-<%--</body>--%>
-<%--</html>--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -51,7 +14,7 @@
 </div>
 <div id="side-bar">
     <h1 class="text-center">Search Ads</h1>
-    <form action="/ads2" method="get" class="text-center">
+    <form action="/ads/search" method="get" class="text-center">
         <div class="mb-3">
             <label for="year" class="form-label">Year:</label>
             <select class="form-select text-center" id="year" name="year">
@@ -126,8 +89,6 @@
                 </div>
             </div>
         </c:forEach>
-
-
     </div>
 </div>
 <div id="tech">
@@ -136,14 +97,18 @@
     <h3>Phone:<a href="#">210-210-2100</a></h3>
     <h3>email:<a href="https://alumni.codeup.com/web-developers">Placement@codeup.com</a></h3>
 </div>
-<div id="ad-holder">
-    <img src="../../img/Screenshot%202023-03-23%20at%2012.04.28%20AM.png" height="480" width="400">
-</div>
+
+<div id="add-block">
+
 <div id="ad1">
-    <a href="https://www.kbb.com/car-advice/when-will-car-prices-drop/">When will new car prices drop?</a>
+    <img src="../../img/Screenshot%202023-03-23%20at%2012.04.28%20AM.png" height="280" width="400">
 </div>
 <div id="ad2">
     <a href="https://www.kbb.com/car-news/chevy-camaro-production-will-end-in-2024-not-gone-forever/"> Chevy: Camaro production will end in 2024; not gone forever</a>
+</div>
+<div id="ad3">
+    <a href="https://www.kbb.com/car-advice/when-will-car-prices-drop/">When will new car prices drop?</a>
+</div>
 </div>
 </body>
 </html>

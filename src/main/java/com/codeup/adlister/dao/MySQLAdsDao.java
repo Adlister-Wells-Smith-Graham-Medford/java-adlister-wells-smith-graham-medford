@@ -218,8 +218,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-////    TODO make the pictures button redirect to a dynamic details page
+    ////    TODO make the pictures button redirect to a dynamic details page
         private List<Ad> createAdsFromResults (Ad ad){
             List<Ad> ads = new ArrayList<>();
             ads.add(ad);

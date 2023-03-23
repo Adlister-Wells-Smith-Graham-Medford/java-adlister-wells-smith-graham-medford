@@ -16,6 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Optional Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="../../CSS/form.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-4">
@@ -23,7 +24,7 @@
     <form action="/ads/edit" method="POST">
         <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
-            <input type="hidden" name="id" value="${ad.id}">
+            <input type="hidden" id="id" name="id" value="${ad.id}">
             <input type="text" name="title" value="${ad.title}" id="title" class="form-control">
         </div>
         <div class="mb-3">
