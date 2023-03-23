@@ -12,21 +12,33 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing ad details" />
     </jsp:include>
+    <link href="../../CSS/details.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div>
-<c:forEach var="ad" items="${ads}">
-    <div>
-        <h2><c:out value="${ad.title}"/></h2>
-        <p>Price:<c:out value="${ad.price}"/></p>
-        <p>Make:<c:out value="${ad.make}"/></p>
-        <p>Model:<c:out value="${ad.model}"/></p>
-        <p>Year:<c:out value="${ad.year}"/></p>
-        <p>MPG:<c:out value="${ad.mpg}"/></p>
-        <p>Transmission:<c:out value="${ad.transmission}"/></p>
+<div id="card">
+    <div id="picture">
+        <img src="/img/2019%20mustang.jpeg" height="600" width="600">
     </div>
-</c:forEach>
+    <div id="card-body">
+        <c:forEach var="ad" items="${ads}">
+            <div>
+                <h2><c:out value="${ad.title}"/></h2>
+                <p>Price:<c:out value="${ad.price}"/></p>
+                <p>Make:<c:out value="${ad.make}"/></p>
+                <p>Model:<c:out value="${ad.model}"/></p>
+                <p>Year:<c:out value="${ad.year}"/></p>
+                <p>MPG:<c:out value="${ad.mpg}"/></p>
+                <p>Transmission:<c:out value="${ad.transmission}"/></p>
+            </div>
+        </c:forEach>
+        <form action="/ads" method="get">
+            <input type="hidden" name="enter" value="">
+            <div class="text-white" id="title"><a class="dropdown-item" href="/ads"></a></div>
+            <input type="submit" class="btn btn-primary" value="Return to Ads">
+        </form>
+    </div>
+</div>
 </div>
 </body>
 </html>

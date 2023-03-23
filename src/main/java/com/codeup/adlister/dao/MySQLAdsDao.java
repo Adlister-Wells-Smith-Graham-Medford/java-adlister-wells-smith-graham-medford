@@ -185,51 +185,55 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-//    Delete Ads
+    //    Delete Ads
     @Override
     public void deleteAd(int id){
         try{
-        String deleteQuery = "DELETE FROM ads WHERE id = ?";
-        PreparedStatement stmt = connection.prepareStatement(deleteQuery);
-        stmt.setInt(1, id);
-        stmt.executeUpdate();
-    } catch (SQLException e) {
-        throw new RuntimeException("Error deleting ad.", e);
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
     }
 
 //    TODO make the pictures button redirect to a dynamic details page
-private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
-    List<Ad> ads = new ArrayList<>();
-        ads.add(ad);
-    return ads;
-}
-//    @Override
-    public List<Ad> findById(int id) {
-        String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setInt(1, id);
-                  Ad ad=  extractAdById(stmt.executeQuery());
-            return createAdsFromResults(ad);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
+        private List<Ad> createAdsFromResults(Ad ad) throws SQLException {
+            List<Ad> ads = new ArrayList<>();
+            ads.add(ad);
+            return ads;
         }
-    }
-    private Ad extractAdById(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
-            return null;
+        @Override
+        public List<Ad> findById(int id) {
+            String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query);
+                stmt.setInt(1, id);
+                Ad ad=  extractAdById(stmt.executeQuery());
+                return createAdsFromResults(ad);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error finding a user by username", e);
+            }
         }
-        return new Ad(
-                rs.getLong("id"),
-                rs.getLong("user_id"),
-                rs.getString("title"),
-                rs.getString("description"),
-                rs.getInt("price"),
-                rs.getString("make"),
-                rs.getString("model"),
-                rs.getInt("year"),
-                rs.getInt("mpg"),
-                rs.getString("transmission")
-        );
-    }
+        private Ad extractAdById(ResultSet rs) throws SQLException {
+            if (! rs.next()) {
+                return null;
+            }
+            return new Ad(
+                    rs.getLong("id"),
+                    rs.getLong("user_id"),
+                    rs.getString("title"),
+                    rs.getString("description"),
+                    rs.getInt("price"),
+                    rs.getString("make"),
+                    rs.getString("model"),
+                    rs.getInt("year"),
+                    rs.getInt("mpg"),
+                    rs.getString("mileage"),
+                    rs.getString("transmission")
+            );
+        }
 }
+
+

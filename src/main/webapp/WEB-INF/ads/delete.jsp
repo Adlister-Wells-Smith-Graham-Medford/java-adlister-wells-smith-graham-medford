@@ -12,6 +12,7 @@
         <jsp:param name="title" value="Delete an Ad" />
     </jsp:include>
     <title>Delete Ad</title>
+    <link href="../../CSS/form.css" rel="stylesheet">
 </head>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <body>
