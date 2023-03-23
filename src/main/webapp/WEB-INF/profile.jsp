@@ -10,11 +10,12 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-
     <div class="container my-4 mb-4 text-center">
+    <img src="${user.profilePic}" width="300px"  height="300px">
         <h1>Welcome, <c:out value="${sessionScope.user.username}"/>!</h1>
         <h3><c:out value="${sessionScope.user.email}"/></h3>
         <p><c:out value="${sessionScope.user.bio}"/></p>
+
 
 
         <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
@@ -23,6 +24,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title"><c:out value="${ad.title}"/></h2>
+                            <img src="${ad.ad_picture}" width="300px"  height="300px">
                             <p class="card-text"><c:out value="Price: ${ad.price}"/></p>
                             <p class="card-text"><c:out value="Description: ${ad.description}"/></p>
                             <p class="card-text"><c:out value="Transmission: ${ad.transmission}"/></p>

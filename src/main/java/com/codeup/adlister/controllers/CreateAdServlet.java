@@ -26,6 +26,9 @@ public class CreateAdServlet extends HttpServlet {
         String mileage = request.getParameter("mileage");
         String transmission = request.getParameter("transmission");
         String priceParam = request.getParameter("price");
+        String ad_picture = request.getParameter("ads_picture");
+        System.out.println(ad_picture);
+
 
         int price = 0;
         if (priceParam != null && !priceParam.isEmpty()) {
@@ -47,6 +50,12 @@ public class CreateAdServlet extends HttpServlet {
         long id = idParam != null ? Long.parseLong(idParam) : 0;
 
         User loggedInUser = (User) request.getSession().getAttribute("user");
+
+
+//        loggedInUser.getId();
+
+
+
         Ad ad = new Ad(
                 id,
                 loggedInUser.getId(),
@@ -58,7 +67,8 @@ public class CreateAdServlet extends HttpServlet {
                 year,
                 mpg,
                 mileage,
-                transmission
+                transmission,
+                ad_picture
         );
 
         DaoFactory.getAdsDao().insert(ad);
