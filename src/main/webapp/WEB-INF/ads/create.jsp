@@ -21,24 +21,23 @@
             </div>
             <div class="form-group">
                 <label for="make">Make</label>
-
-                <input id="make" name="title" class="form-control" type="text" placeholder="*">
+                <input id="make" name="make" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="model">Model</label>
-                <input id="model" name="title" class="form-control" type="text" placeholder="*">
+                <input id="model" name="model" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="year">Year</label>
-                <input id="year" name="title" class="form-control" type="text" placeholder="*">
+                <input id="year" name="year" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="mileage">Mileage</label>
-                <input id="mileage" name="title" class="form-control" type="text" placeholder="*">
+                <input id="mileage" name="mileage" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input id="price" name="title" class="form-control" type="text" placeholder="*">
+                <input id="price" name="price" class="form-control" type="text" placeholder="*">
             </div>
             <div class="form-group">
                 <label for="mpg">MPG</label>

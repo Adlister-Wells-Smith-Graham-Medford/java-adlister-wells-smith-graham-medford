@@ -1,3 +1,13 @@
+body{
+    background-color: #eaecee;
+    color: black;
+    display: grid;
+    grid-template: 50px 1fr/ 300px 1fr;
+    background-image: url("/img/indexbackground.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: auto;
+}
 #navbar{
     position: fixed;
     top: 0;
@@ -9,21 +19,41 @@
     position: absolute;
     left: 600px;
 }
-body{
-    /*background-image: url("/img/adbackground.jpeg");*/
-    /*background-size: cover;*/
-    /*background-repeat: repeat;*/
+#side-bar{
+    position: fixed;
+    top: 80px;
+    left: 0px;
+    grid-row: 2;
+    grid-column: 1;
     background-color: #eaecee;
-    color: black;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    margin-left: 10px;
 }
 #container{
+    grid-row: 1;
+    grid-column: 1;
     margin-top:100px ;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    background-color: #eaecee;
 }
-#card {
+#scroll{
+    grid-row: 2;
+    grid-column: 2;
+    position: absolute;
+    top: -30px;
+    display: grid;
+    grid-template: 1fr/1fr;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    height:950px;
+    width: 1100px;
+    margin-left: 680px;
+}
+#card{
 
     display: flex;
     border-radius: 10px;
@@ -40,4 +70,44 @@ body{
     margin-right: 20px;
 }
 
+#tech{
+    background-color: #eaecee;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    text-align: center;
+}
 
+#ad-holder{
+    position: absolute;
+    top: 610px;
+    left: 15px;
+
+}
+#ad1{
+    background-color: #F2F2F2;
+    position: absolute;
+    top: 610px;
+    left: 220px;
+    height: 75px;
+    width: 190px;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+a{
+    color: black;
+}
+#ad2{
+    background-color: #F2F2F2;
+    position: absolute;
+    top: 845px;
+    left: 220px;
+    height: 150px;
+    width: 190px;
+    font-size: 25px;
+    font-weight: bold;
+}

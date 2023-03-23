@@ -19,30 +19,10 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        Ad ad = new Ad(
-//            request.getParameter("Id"),
-//            request.getParameter("title"),
-//            request.getParameter("description"),
-//            request.getParameter("price"),
-//            request.getParameter("make"),
-//            request.getParameter("model"),
-//            request.getParameter("year"),
-//            request.getParameter("mpg"),
-//            request.getParameter("transmission"),
-//            request.getParameter("mileage")
-//        );
-//        DaoFactory.getAdsDao().insert(ad);
-//        response.sendRedirect("/ads");
-//    }
-//          long id = Long.parseLong(request.getParameter("id"));
-//          long user_id = Long.parseLong(request.getParameter("user_id"));
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-//        int price = Integer.parseInt(request.getParameter("price"));
         String make = request.getParameter("make");
         String model = request.getParameter("model");
-//        int year = Integer.parseInt(request.getParameter("year"));
-//        int mpg = Integer.parseInt(request.getParameter("mpg"));
         String mileage = request.getParameter("mileage");
         String transmission = request.getParameter("transmission");
         String priceParam = request.getParameter("price");
@@ -70,6 +50,8 @@ public class CreateAdServlet extends HttpServlet {
         long id = idParam != null ? Long.parseLong(idParam) : 0;
 
         User loggedInUser = (User) request.getSession().getAttribute("user");
+
+
 //        loggedInUser.getId();
 
 
@@ -90,6 +72,6 @@ public class CreateAdServlet extends HttpServlet {
         );
 
         DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        response.sendRedirect("/profile");
 
     }}

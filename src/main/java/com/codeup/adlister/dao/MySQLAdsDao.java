@@ -231,6 +231,23 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+
+////    TODO make the pictures button redirect to a dynamic details page
+        private List<Ad> createAdsFromResults (Ad ad){
+            List<Ad> ads = new ArrayList<>();
+            ads.add(ad);
+            return ads;
+        }
+
+        public List<Ad> findById (int id){
+            String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query);
+                stmt.setInt(1, id);
+                ResultSet rs = stmt.executeQuery();
+//                Ad ad = extractAdById(rs);
+                return createAdsFromResults(rs);
+
     public List<Ad> findById(int id) {
         String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
         try {
@@ -239,6 +256,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             Ad ad = extractAdById(rs);
             return createAdsFromResults((ResultSet) ad);
+
 
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username", e);
