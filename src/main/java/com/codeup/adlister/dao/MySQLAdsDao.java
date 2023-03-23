@@ -225,19 +225,12 @@ public class MySQLAdsDao implements Ads {
     }
 
     ////    TODO make the pictures button redirect to a dynamic details page
+
     private List<Ad> createAdsFromResults(Ad ad) {
         List<Ad> ads = new ArrayList<>();
         ads.add(ad);
         return ads;
     }
-
-
-////    TODO make the pictures button redirect to a dynamic details page
-        private List<Ad> createAdsFromResults (Ad ad){
-            List<Ad> ads = new ArrayList<>();
-            ads.add(ad);
-            return ads;
-        }
 
         public List<Ad> findById (int id){
             String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";

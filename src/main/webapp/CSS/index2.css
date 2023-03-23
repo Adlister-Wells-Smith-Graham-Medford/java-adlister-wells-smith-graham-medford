@@ -1,0 +1,49 @@
+body{
+    background-image: url("/img/homepage.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    aspect-ratio: auto;
+}
+header{
+    width: 100px;
+    text-align: center;
+}
+h1{
+    color: #eaecee;
+    /*position: absolute;*/
+    /*top: 80px;*/
+    /*left: 200px;*/
+
+}
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#main-title{
+    position: absolute;
+    left: 600px;
+}
+
+#container{
+    position: absolute;
+    top: 100px;
+    left: 520px;
+    background-color: #817C83;
+    opacity: 90%;
+    width: 350px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+
+
+
+
+
