@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+//        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 //        System.out.println(hashedPassword);
 
         if (user == null) {

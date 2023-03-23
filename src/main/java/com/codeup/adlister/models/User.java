@@ -35,6 +35,10 @@ public class User {
         this.bio = bio;
         this.profilePic = profilePic;
     }
+
+    public User(long id, String username, String email, String password, String bio) {
+    }
+
     public long getId() {
         return id;
     }
