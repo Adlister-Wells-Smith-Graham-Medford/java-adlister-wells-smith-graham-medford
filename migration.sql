@@ -41,17 +41,6 @@
 # #                                          (11, LOAD_FILE('/path/to/image2.jpg'));
 USE adlister_db;
 
-DROP TABLE IF EXISTS images;
-
-CREATE TABLE images (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        user_id int unsigned NOT NULL,
-                        name VARCHAR(255) NOT NULL,
-                        filepath varchar(255) NOT NULL,
-                        FOREIGN KEY (user_id) REFERENCES users(id)
-
-);
-DROP TABLE IF EXISTS images;
 
 ALTER TABLE ads
     DROP FOREIGN KEY ads_ibfk_1;
@@ -91,4 +80,4 @@ CREATE TABLE ads (
 
 SELECT * From users;
 
-SELECT * FROM images;
+SELECT * FROM ads;
