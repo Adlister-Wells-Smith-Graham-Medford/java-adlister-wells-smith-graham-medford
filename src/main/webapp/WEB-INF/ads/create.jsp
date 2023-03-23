@@ -49,6 +49,10 @@
                 <label for="transmission">Transmission</label>
                 <input id="transmission" name="transmission" class="form-control" type="text">
             </div>
+            <div class="form-group">
+                <label for="ads_picture">Input Image URL</label>
+                <input id="ads_picture" name="ads_picture" class="form-control" type="text">
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

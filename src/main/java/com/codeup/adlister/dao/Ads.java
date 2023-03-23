@@ -1,9 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
-import com.codeup.adlister.models.User;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface Ads {
@@ -14,7 +12,9 @@ public interface Ads {
     Long insert(Ad ad);
 
     //    Delete Ads
+
     void deleteAd(int id);
+    void deleteAllAds(int adId);
 
 //    List<Ad> adDetails(Ad ad);
 
@@ -26,5 +26,8 @@ public interface Ads {
 
     List<Ad> findByMake(String make);
     List<Ad> searchByModel(String model);
+
+
+    void update(Ad ad);
 
 }

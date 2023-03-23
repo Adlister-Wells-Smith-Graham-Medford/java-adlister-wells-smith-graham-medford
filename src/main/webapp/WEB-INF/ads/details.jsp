@@ -12,6 +12,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing ad details" />
     </jsp:include>
+
     <link href="../../CSS/details.css" rel="stylesheet">
 </head>
 <body>
@@ -38,7 +39,6 @@
             <input type="submit" class="btn btn-primary" value="Return to Ads">
         </form>
     </div>
-</div>
 </div>
 </body>
 </html>
