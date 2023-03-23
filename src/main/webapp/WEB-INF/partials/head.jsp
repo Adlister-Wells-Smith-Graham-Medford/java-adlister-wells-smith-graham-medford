@@ -3,4 +3,7 @@
 <title>${param.title}</title>
 <%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">--%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<%--<link href="../CSS/resets.css" rel="stylesheet">--%>
+<%--<link href="../CSS/layout.css" rel="stylesheet">--%>
+<%--<link href="../CSS/global.css" rel="stylesheet">--%>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">

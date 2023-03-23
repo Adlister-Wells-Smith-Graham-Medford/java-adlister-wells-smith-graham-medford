@@ -241,9 +241,40 @@ public class MySQLAdsDao implements Ads {
             return createAdsFromResults((ResultSet) ad);
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
+            throw new RuntimeException("Error deleting ad.", e);
         }
     }
+
+        @Override
+        public List<Ad> findById(int id) {
+            String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query);
+                stmt.setInt(1, id);
+                Ad ad=  extractAdById(stmt.executeQuery());
+                return createAdsFromResults(ad);
+            } catch (SQLException e) {
+                throw new RuntimeException("Error finding a user by username", e);
+            }
+        }
+        private Ad extractAdById(ResultSet rs) throws SQLException {
+            if (! rs.next()) {
+                return null;
+            }
+            return new Ad(
+                    rs.getLong("id"),
+                    rs.getLong("user_id"),
+                    rs.getString("title"),
+                    rs.getString("description"),
+                    rs.getInt("price"),
+                    rs.getString("make"),
+                    rs.getString("model"),
+                    rs.getInt("year"),
+                    rs.getInt("mpg"),
+                    rs.getString("mileage"),
+                    rs.getString("transmission")
+            );
+        }
 
     private Ad extractAdById(ResultSet rs) throws SQLException {
         if (!rs.next()) {

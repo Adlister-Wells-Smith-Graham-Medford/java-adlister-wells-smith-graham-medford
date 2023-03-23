@@ -4,6 +4,7 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+    <link href="../CSS/form.css" rel="stylesheet">
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />

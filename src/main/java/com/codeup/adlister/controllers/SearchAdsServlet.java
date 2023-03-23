@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "SearchAdsServlet", urlPatterns = "/ads/search")
+@WebServlet(name = "SearchAdsServlet", urlPatterns = "/ads2")
 public class SearchAdsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -64,7 +64,9 @@ public class SearchAdsServlet extends HttpServlet {
         }
 
         // Forward the request to the JSP page for rendering
-        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ads/index2.jsp").forward(request, response);
+//        TODO get this to send the user to the second index and keep the filter response that they picked.
+        response.sendRedirect("/WEB-INF/ads/index2.jsp");
     }
 
     @Override
