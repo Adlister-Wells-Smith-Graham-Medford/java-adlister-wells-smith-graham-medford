@@ -231,6 +231,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+
     public List<Ad> findById(int id) {
         String query = "SELECT * FROM adlister_db.ads WHERE adlister_db.ads.id = ? LIMIT 1";
         try {
@@ -239,6 +240,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             Ad ad = extractAdById(rs);
             return createAdsFromResults((ResultSet) ad);
+
 
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting ad.", e);
