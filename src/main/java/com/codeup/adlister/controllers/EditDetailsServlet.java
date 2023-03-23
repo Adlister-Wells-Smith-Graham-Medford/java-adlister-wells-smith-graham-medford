@@ -100,7 +100,6 @@ public class EditDetailsServlet extends HttpServlet {
             if(newBio.length() <= 255) {
             }
             // update the user's bio
-            System.out.println("This is working!");
             User user = (User) session.getAttribute("user");
             usersDao.updateBio(user, newBio);
             user.setBio(newBio);
@@ -111,17 +110,6 @@ public class EditDetailsServlet extends HttpServlet {
         }
 
         if (newPassword != null) {
-
-//            String password = request.getParameter("password");
-//            User user = DaoFactory.getUsersDao().findByUsername(username);
-//            boolean validAttempt = BCrypt.checkpw(password, user.getPassword());
-//
-//            if (validAttempt) {
-//                request.getSession().setAttribute("user", user);
-//                response.sendRedirect("/profile");
-//            } else {
-//                response.sendRedirect("/login");
-//            }
 
             if(newPassword.length() > 0 && newPassword.length() <= 255){
                 // update the user's password
