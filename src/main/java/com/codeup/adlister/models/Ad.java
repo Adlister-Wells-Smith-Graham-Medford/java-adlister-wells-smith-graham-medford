@@ -39,7 +39,7 @@ public class Ad {
 
     public Ad(String ad_picture, long userid, String title, String description) {
         this.ad_picture = ad_picture;
-        this.userid = userid;
+        this.userId = userId;
         this.title = title;
         this.description = description;
 

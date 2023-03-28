@@ -3,7 +3,6 @@ package com.codeup.adlister.models;
 import java.awt.*;
 
 public class User {
-    private String profilePic;
     private long id;
     private String username;
     private String email;
@@ -12,12 +11,11 @@ public class User {
 
     public User() {}
 
-    public User(String username, String email, String password, String bio, String profilePic) {
+    public User(String username, String email, String password, String bio) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.bio = bio;
-        this.profilePic = profilePic;
     }
 
     public User(long id, String username, String email, String password) {
@@ -27,13 +25,12 @@ public class User {
         this.password = password;
     }
 
-    public User(long id, String username, String email, String password, String bio, String profilePic) {
+    public User(long id, String username, String email, String password, String bio) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.bio = bio;
-        this.profilePic = profilePic;
     }
     public long getId() {
         return id;
@@ -75,11 +72,4 @@ public class User {
         this.bio = bio;
     }
 
-    public String getProfilePic() {
-        return profilePic;
-    }
-
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
-    }
 }

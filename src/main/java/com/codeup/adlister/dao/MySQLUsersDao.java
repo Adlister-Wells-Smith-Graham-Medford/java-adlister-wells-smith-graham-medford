@@ -47,14 +47,13 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long insert(User user) {
-        String query = "INSERT INTO users(username, email, password, bio, profilePic) VALUES (?, ?, ?,?,?)";
+        String query = "INSERT INTO users(username, email, password, bio) VALUES (?, ?, ?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
             stmt.setString(4,user.getBio());
-            stmt.setString(5,user.getProfilePic());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -70,19 +69,21 @@ public class MySQLUsersDao implements Users {
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setLong(1, userId);
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
             return extractUser(stmt.executeQuery());
+//        return new User(
+//            rs.getLong("id"),
+//            rs.getString("username"),
+//            rs.getString("email"),
+//            rs.getString("password"),
+//            rs.getString("bio"),
+//                rs.getString("profilePic")
+//        );
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username", e);
         }
 
-        return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password"),
-            rs.getString("bio"),
-                rs.getString("profilePic")
-        );
 
     }
 
@@ -150,17 +151,17 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-            public void deleteUser ( long id){
-                String query = "DELETE FROM users WHERE id = ?";
-                try {
-                    PreparedStatement stmt = connection.prepareStatement(query);
-                    stmt.setLong(1, id);
-                    stmt.executeUpdate();
-                } catch (SQLException e) {
-                    throw new RuntimeException("Error deleting user", e);
-
-                }
-            }
+//            public void deleteUser ( long id){
+//                String query = "DELETE FROM users WHERE id = ?";
+//                try {
+//                    PreparedStatement stmt = connection.prepareStatement(query);
+//                    stmt.setLong(1, id);
+//                    stmt.executeUpdate();
+//                } catch (SQLException e) {
+//                    throw new RuntimeException("Error deleting user", e);
+//
+//                }
+//            }
 
             private User extractUser (ResultSet rs) throws SQLException {
                 if (!rs.next()) {
@@ -174,7 +175,7 @@ public class MySQLUsersDao implements Users {
                         rs.getString("bio")
                 );
             }
-        }
+    }
 
-}
+
 
